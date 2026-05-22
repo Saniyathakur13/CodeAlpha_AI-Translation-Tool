@@ -1,4 +1,6 @@
 # AI Translation Tool
+<img width="1817" height="734" alt="image" src="https://github.com/user-attachments/assets/83bbbe04-939e-44c7-8bde-e3f87b6f5481" />
+<img width="1847" height="943" alt="image" src="https://github.com/user-attachments/assets/3cab9be8-d890-4118-9e0b-74c34e8ad6ae" />
 
 A professional, dynamic AI-powered language translation tool with modern UI and real-time translation capabilities.
 
