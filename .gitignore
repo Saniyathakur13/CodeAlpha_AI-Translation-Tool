@@ -1,0 +1,9 @@
+backend/venv/
+backend/__pycache__/
+.vscode/
+node_modules/
+.env
+dist/
+build/
+.ipynb_checkpoints/
+*.log

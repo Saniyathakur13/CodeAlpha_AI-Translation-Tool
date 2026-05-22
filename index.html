@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Translation Tool - 30+ Languages including Indian</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <i class="fas fa-language"></i>
+                <h1>AI Translation Tool</h1>
+            </div>
+            <p class="tagline">30+ Languages | Indian Languages Supported | Neural Machine Translation</p>
+        </header>
+
+        <main class="translation-card">
+            <div class="model-badge">
+                <i class="fas fa-microchip"></i>
+                <span id="modelStatus">Checking connection...</span>
+            </div>
+
+            <div class="language-bar">
+                <div class="lang-selector">
+                    <label><i class="fas fa-source"></i> Source Language</label>
+                    <select id="sourceLang">
+                        <option value="auto">🔍 Auto-Detect</option>
+                        <optgroup label="🇮🇳 Indian Languages">
+                            <option value="hi">हिन्दी (Hindi)</option>
+                            <option value="bn">বাংলা (Bengali)</option>
+                            <option value="te">తెలుగు (Telugu)</option>
+                            <option value="mr">मराठी (Marathi)</option>
+                            <option value="ta">தமிழ் (Tamil)</option>
+                            <option value="ur">اردو (Urdu)</option>
+                            <option value="gu">ગુજરાતી (Gujarati)</option>
+                            <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                            <option value="ml">മലയാളം (Malayalam)</option>
+                            <option value="or">ଓଡ଼ିଆ (Odia)</option>
+                            <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+                        </optgroup>
+                        <optgroup label="🌍 International Languages">
+                            <option value="en">🇺🇸 English</option>
+                            <option value="es">🇪🇸 Spanish</option>
+                            <option value="fr">🇫🇷 French</option>
+                            <option value="de">🇩🇪 German</option>
+                            <option value="it">🇮🇹 Italian</option>
+                            <option value="pt">🇵🇹 Portuguese</option>
+                            <option value="ru">🇷🇺 Russian</option>
+                            <option value="zh">🇨🇳 Chinese</option>
+                            <option value="ja">🇯🇵 Japanese</option>
+                            <option value="ko">🇰🇷 Korean</option>
+                            <option value="ar">🇸🇦 Arabic</option>
+                            <option value="tr">🇹🇷 Turkish</option>
+                            <option value="nl">🇳🇱 Dutch</option>
+                            <option value="pl">🇵🇱 Polish</option>
+                            <option value="sv">🇸🇪 Swedish</option>
+                            <option value="th">🇹🇭 Thai</option>
+                            <option value="vi">🇻🇳 Vietnamese</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="swap-icon" id="swapLangs">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+
+                <div class="lang-selector">
+                    <label><i class="fas fa-target"></i> Target Language</label>
+                    <select id="targetLang">
+                        <optgroup label="🇮🇳 Indian Languages">
+                            <option value="hi">हिन्दी (Hindi)</option>
+                        </optgroup>
+                        <optgroup label="🌍 International Languages">
+                            <option value="en" selected>🇺🇸 English</option>
+                            <option value="es">🇪🇸 Spanish</option>
+                            <option value="fr">🇫🇷 French</option>
+                            <option value="de">🇩🇪 German</option>
+                            <option value="it">🇮🇹 Italian</option>
+                            <option value="pt">🇵🇹 Portuguese</option>
+                            <option value="ru">🇷🇺 Russian</option>
+                            <option value="ar">🇸🇦 Arabic</option>
+                            
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+
+            <div class="translation-area">
+                <div class="input-box">
+                    <div class="box-header">
+                        <span><i class="fas fa-pen"></i> Original Text</span>
+                        <button class="action-btn" id="clearBtn">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <textarea id="inputText" placeholder="Enter text to translate... Supports Indian languages like Hindi, Bengali, Tamil, etc."></textarea>
+                </div>
+                <div class="output-box">
+                    <div class="box-header">
+                        <span><i class="fas fa-robot"></i> AI Translation</span>
+                        <div>
+                            <button class="action-btn" id="copyBtn" title="Copy translation">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                            <button class="action-btn" id="speakBtn" title="Listen to translation">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                            <button class="action-btn" id="stopSpeakBtn" title="Stop">
+                                 <i class="fas fa-stop"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="outputText" class="output-content">
+                        <div class="placeholder-text">Translation will appear here...</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-footer">
+                <button id="translateBtn" class="translate-btn">
+                    <i class="fas fa-microchip"></i>
+                    Translate with AI
+                </button>
+            </div>
+
+            <div id="loadingIndicator" class="loading-indicator hidden">
+                <div class="spinner"></div>
+                <span>🧠 AI processing...</span>
+            </div>
+            <div id="errorMsg" class="error-message hidden"></div>
+            
+            <div class="info-box">
+                <details>
+                    <summary><i class="fas fa-info-circle"></i> Supported Indian Languages</summary>
+                    <div class="info-content">
+                        <p><strong>🇮🇳 14 Indian Languages:</strong> Hindi, Bengali, Telugu, Marathi, Tamil, Urdu, Gujarati, Kannada, Malayalam, Odia, Punjabi, Assamese, Maithili, Santali</p>
+                        <p><strong>🌍 International:</strong> English, Spanish, French, German, Italian, Portuguese, Russian, Chinese, Japanese, Korean, Arabic, Turkish, Dutch, Polish, Swedish, Thai, Vietnamese</p>
+                    </div>
+                </details>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <p>Powered by Google Gemini AI | 30+ Languages | Indian Languages Supported</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
